@@ -1,5 +1,6 @@
 package com.unittest.codecoverage.service;
 
+import com.unittest.codecoverage.models.StreetDirectionFlow;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -48,6 +49,16 @@ public class TrafficBehaviorServiceTest {
 			.isInstanceOf(BehaviorException.class)
 			.hasMessage("You should be more careful");
 		
+	}
+
+	@Test
+	public void directionTest(){
+		Traffic currentTrafic = new Traffic();
+		currentTrafic.setStreetDirectionFlow(StreetDirectionFlow.ONE_WAY);
+		StreetDirectionFlow currentDirection = currentTrafic.getStreetDirectionFlow();
+		if (currentDirection != StreetDirectionFlow.ONE_WAY){
+			System.out.println("Confused by the direction!");
+		}
 	}
 
 }
